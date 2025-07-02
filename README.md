@@ -1,5 +1,7 @@
 
 
+---
+
 ````
 # 🔍 ScanForge: Advanced TCP Port Scanner
 
@@ -89,7 +91,7 @@ Simple to use, yet powerful for network auditing tasks.
 
 ## 👨‍💻 Author
 
-**CRUSVEDER**
+**Yash Gholap**
 Python | Cybersecurity | Network Tools
 
 ---
