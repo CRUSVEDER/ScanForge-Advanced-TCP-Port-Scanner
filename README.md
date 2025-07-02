@@ -1,5 +1,5 @@
 
-````
+
 # 🔍 ScanForge: Advanced TCP Port Scanner
 
 ScanForge is a high-speed, feature-rich TCP port scanner built with Python and Scapy. It allows you to scan individual IP addresses or full subnets for open ports using TCP SYN scanning. With support for multithreading and optional banner grabbing, it's a powerful tool for network reconnaissance, penetration testing, and forensic analysis.
@@ -16,7 +16,7 @@ ScanForge is a high-speed, feature-rich TCP port scanner built with Python and S
 - 🎛️ **Command-line interface with argparse**
 
 ---
-
+````
 ## 🛠️ Requirements
 
 - Python 3.6+
