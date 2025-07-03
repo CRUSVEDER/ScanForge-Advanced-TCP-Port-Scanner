@@ -86,13 +86,6 @@ Simple to use, yet powerful for network auditing tasks.
 
 ---
 
-## 👨‍💻 Author
-
-**Yash Gholap**
-Python | Cybersecurity | Network Tools
-
----
-
 ## 📜 License
 
 MIT License – free to use, modify, and distribute.
