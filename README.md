@@ -1,94 +1,119 @@
 
+# 🛡️ CRUS SCANNER
 
-# 🔍 ScanForge: Advanced TCP Port Scanner
+**CRUS SCANNER** is a fast and flexible TCP port scanner built with Python, using **Scapy**, **Socket**, and a touch of interactivity via an in-terminal command shell. It can also attempt to grab banners from open ports.
 
-ScanForge is a high-speed, feature-rich TCP port scanner built with Python and Scapy. It allows you to scan individual IP addresses or full subnets for open ports using TCP SYN scanning. With support for multithreading and optional banner grabbing, it's a powerful tool for network reconnaissance, penetration testing, and forensic analysis.
+> ⚡ Powered by multi-threading and stylish output via Rich and PyFiglet.
 
 ---
 
 ## 🚀 Features
 
-- ⚡ **Multithreaded TCP SYN scanning**
-- 🧠 **CIDR/IP range support**
-- 🎯 **Custom port selection** (single, list, range)
-- 🛡️ **Banner grabbing** to identify services
-- 🧩 **Scapy-powered raw packet crafting**
-- 🎛️ **Command-line interface with argparse**
+- TCP SYN port scanning using raw packets (`Scapy`)
+- Banner grabbing (optional)
+- CIDR range support (e.g., `192.168.1.0/24`)
+- Interactive command-line shell
+- Colorful, readable output with `rich`
+- Fast scanning using `ThreadPoolExecutor`
 
 ---
-````
-## 🛠️ Requirements
 
-- Python 3.6+
-- `scapy`
-- Root/Administrator privileges (for raw packet sending)
+## 📦 Dependencies
 
-### 🔧 Install dependencies:
+Install dependencies via pip:
 
 ```bash
-pip install scapy
+pip install -r requirements.txt
 ````
 
----
+**Required libraries:**
 
-## 📦 Usage
+* `scapy`
+* `rich`
+* `pyfiglet`
+
+You can also install them manually:
 
 ```bash
-python scanner.py <target> [options]
+pip install scapy rich pyfiglet
 ```
 
-### 📘 Examples
-
-* **Basic Scan on single IP (ports 1-1024)**
-
-  ```bash
-  python scanner.py 192.168.1.10
-  ```
-
-* **Scan a subnet with specific ports**
-
-  ```bash
-  python scanner.py 192.168.1.0/30 -p 22,80,443,8000-8100
-  ```
-
-* **Scan with banner grabbing**
-
-  ```bash
-  python scanner.py 10.0.0.1 -p 21-25 -b
-  ```
+> ⚠️ Run with `sudo` or admin permissions (Scapy requires raw socket access).
 
 ---
 
-## 🧪 Output Example
+## 🧪 Usage
+
+Run the scanner interactively:
+
+```bash
+python3 crus_scanner.py
+```
+
+You’ll enter an interactive shell like this:
 
 ```
-🔍 Scanning Host: 192.168.1.10
-  ✅ Port 22 OPEN (ssh)
-  ✅ Port 80 OPEN (http)
-  ✅ Port 21 OPEN (ftp) | Banner: 220 Welcome to FTP service
+CRUS SCANNER
+============
+
+Enter commands like:
+  scan 192.168.1.1 -p 80,443 -b
+  exit or quit to leave.
+
+crus>
+```
+
+### 🔧 Commands
+
+| Command Example                 | Description                     |
+| ------------------------------- | ------------------------------- |
+| `scan 192.168.1.1`              | Scan default ports (1-1024)     |
+| `scan 10.0.0.0/24 -p 22,80,443` | Scan ports on entire subnet     |
+| `scan 127.0.0.1 -p 21-25 -b`    | Scan ports with banner grabbing |
+| `help` or `?`                   | Show available commands         |
+| `exit` or `quit`                | Exit the scanner                |
+
+---
+
+## 📌 Notes
+
+* Scapy may trigger firewall alerts. Use responsibly on machines you own or have permission to scan.
+* Banner grabbing is TCP-based (basic socket request) and may fail if services don’t send banners.
+* Scanning high port ranges or many IPs might take time.
+
+---
+
+## 📁 Example Output
+
+```
+crus> scan 127.0.0.1 -p 22,80,443 -b
+
+🔍 Scanning Host: 127.0.0.1
+  ✅ Port 22 OPEN (ssh) | Banner: OpenSSH_8.9p1 Ubuntu
+  ❌ No open ports found.
 ```
 
 ---
 
-## ⚠️ Disclaimer
+## 🔒 Disclaimer
 
-> This tool is intended for **educational and authorized penetration testing purposes only**.
-> Unauthorized scanning of networks may be illegal. Always ensure you have permission.
-
----
-
-## 📄 Project Summary
-
-ScanForge is an advanced TCP scanner using Scapy for efficient SYN scanning of networks.
-It supports multithreaded execution, IP/CIDR targeting, and banner grabbing for service detection.
-Ideal for forensic analysts, security researchers, and ethical hackers.
-Simple to use, yet powerful for network auditing tasks.
+This tool is meant for **educational** and **authorized penetration testing** use only. Do **not** use it on networks you don’t own or have written permission to scan.
 
 ---
 
 ## 📜 License
 
-MIT License – free to use, modify, and distribute.
+MIT License — feel free to use, modify, and contribute!
+
+---
+
+## 👤 Author
+
+Made with 💻 by **Crusveder**
+GitHub: [@crusveder](https://github.com/crusveder)
+
+```
+
 
 
 
